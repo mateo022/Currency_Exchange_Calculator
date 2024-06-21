@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .content {
+      flex-direction: row;
+    }
+  }
+  
+  .form-card, .result-card {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .result-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result-card h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  
+  .invoice {
+    margin-top: 20px;
+  }
+  
+  .invoice-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .invoice-body {
+    padding-top: 10px;
+  }
+  
+  .invoice-body table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .invoice-body table th, 
+  .invoice-body table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .invoice-body table th {
+    background-color: #f2f2f2;
+  }
+
+  .buttons
+  {
+    display: flex;
+    margin-bottom: 2%;
+    justify-content: space-evenly;
+  }

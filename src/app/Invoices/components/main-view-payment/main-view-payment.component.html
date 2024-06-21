@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="content">
+      <mat-card class="form-card">
+        <form [formGroup]="exchangeForm" (ngSubmit)="onSubmit()">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Valor a pagar en USD</mat-label>
+              <input matInput id="payableAmount" formControlName="payableAmount" type="number">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Valor entregado en USD</mat-label>
+              <input matInput id="givenAmount" formControlName="givenAmount" type="number">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Moneda de salida</mat-label>
+              <mat-select id="currency" formControlName="currency">
+                <mat-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="buttons">
+            <button mat-raised-button color="primary" type="submit">Calcular</button>
+          <button mat-raised-button color="warn" type="button" (click)="resetForm()">Reiniciar</button>
+          </div>
+          
+        </form>
+      </mat-card>
+  
+
+      <!-- CARD PARA MOSTRAR RESULTADOS DEL PAGO -->
+      <mat-card *ngIf="result" class="result-card">
+        <h3>Factura de Pago</h3>
+        <div class="invoice">
+          <div class="invoice-header">
+            <p><strong>Devuelta en USD:</strong> {{result.changeInUSD}}</p>
+            <p><strong>Devuelta en {{result.currency}}:</strong> {{result.changeInCurrency}}</p>
+          </div>
+          <div class="invoice-body">
+            <p><strong>Cantidad por denominación:</strong></p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Denominación</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let denom of result.denominations">
+                  <td>{{denom.value}}</td>
+                  <td>{{denom.count}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>

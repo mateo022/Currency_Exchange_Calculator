@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/animate.css/animate.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* styles.css o styles.scss */
+.snackbar-error {
+    background-color: #d32f2f !important; /* Color de fondo rojo */
+    color: white !important; /* Color del texto */
+  }

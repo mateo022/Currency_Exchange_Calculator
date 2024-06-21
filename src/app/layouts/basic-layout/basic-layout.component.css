@@ -1,0 +1,29 @@
+/* Estilos base */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Altura mínima de la ventana del navegador */
+}
+
+.header, .body, .footer {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+.body {
+  flex-grow: 1; /* Expande el cuerpo para llenar el espacio restante */
+  overflow-y: auto; /* Permitir desplazamiento vertical si el contenido excede la altura */
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
