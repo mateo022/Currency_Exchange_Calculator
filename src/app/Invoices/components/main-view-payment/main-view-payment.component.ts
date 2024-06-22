@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PaymentService } from '../../services/payment.service';
 import { CurrencyExchange, Denomination } from '../../models/payment.model';
 import { SnackBarService } from '../../../shared/services/snackbar.service';
@@ -20,11 +20,11 @@ export class MainViewPaymentComponent implements OnInit {
     private paymentService: PaymentService,private snackbarService: SnackBarService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.exchangeForm = this.fb.group({
-      payableAmount: [''],
-      givenAmount: [''],
-      currency: ['EUR']
+      payableAmount: ['', [Validators.required, Validators.min(0.01)]],
+      givenAmount: ['', [Validators.required, Validators.min(0.01)]],
+      currency: ['', Validators.required]
     });
 
     this.loadDenominations();

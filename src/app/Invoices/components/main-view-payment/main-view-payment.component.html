@@ -1,36 +1,49 @@
 <div class="container">
-    <div class="content">
-      <mat-card class="form-card">
-        <form [formGroup]="exchangeForm" (ngSubmit)="onSubmit()">
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Valor a pagar en USD</mat-label>
-              <input matInput id="payableAmount" formControlName="payableAmount" type="number">
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Valor entregado en USD</mat-label>
-              <input matInput id="givenAmount" formControlName="givenAmount" type="number">
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Moneda de salida</mat-label>
-              <mat-select id="currency" formControlName="currency">
-                <mat-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div class="buttons">
-            <button mat-raised-button color="primary" type="submit">Calcular</button>
+  <div class="content">
+    <mat-card class="form-card">
+      <form [formGroup]="exchangeForm" (ngSubmit)="onSubmit()">
+        <div>
+          <mat-form-field appearance="fill" class="inputs">
+            <mat-label>Valor a pagar en USD</mat-label>
+            <input matInput id="payableAmount" formControlName="payableAmount" type="number">
+            <mat-error *ngIf="exchangeForm.get('payableAmount')?.hasError('required')">
+              Este campo es obligatorio.
+            </mat-error>
+            <mat-error *ngIf="exchangeForm.get('payableAmount')?.hasError('min')">
+              El valor debe ser mayor que cero.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill"  class="inputs">
+            <mat-label>Valor entregado en USD</mat-label>
+            <input matInput id="givenAmount" formControlName="givenAmount" type="number">
+            <mat-error *ngIf="exchangeForm.get('givenAmount')?.hasError('required')">
+              Este campo es obligatorio.
+            </mat-error>
+            <mat-error *ngIf="exchangeForm.get('givenAmount')?.hasError('min')">
+              El valor debe ser mayor que cero.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="inputs">
+            <mat-label>Moneda de salida</mat-label>
+            <mat-select id="currency" formControlName="currency">
+              <mat-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="exchangeForm.get('currency')?.hasError('required')">
+              Selecciona una moneda.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="buttons">
+          <button mat-raised-button color="primary" type="submit" [disabled]="exchangeForm.invalid">Calcular</button>
           <button mat-raised-button color="warn" type="button" (click)="resetForm()">Reiniciar</button>
-          </div>
-          
-        </form>
-      </mat-card>
-  
-
+        </div>
+      </form>
+    </mat-card>
+    
       <!-- CARD PARA MOSTRAR RESULTADOS DEL PAGO -->
       <mat-card *ngIf="result" class="result-card">
         <h3>Factura de Pago</h3>

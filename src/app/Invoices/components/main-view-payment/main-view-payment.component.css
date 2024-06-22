@@ -67,6 +67,9 @@
   .invoice-body table th {
     background-color: #f2f2f2;
   }
+  .inputs{
+    margin-top: 4% ;
+  }
 
   .buttons
   {
