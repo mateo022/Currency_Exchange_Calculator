@@ -4,8 +4,9 @@ export interface CurrencyExchange {
     denominations: Denomination[];
     currency: string;
   }
-  
+
   export interface Denomination {
     value: number;
     count: number;
+    available: number;
   }

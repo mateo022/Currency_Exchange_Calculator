@@ -1,7 +1,9 @@
 <div class="container">
   <div class="content">
+    <!-- Tarjeta para el formulario -->
     <mat-card class="form-card">
       <form [formGroup]="exchangeForm" (ngSubmit)="onSubmit()">
+        <!-- Campo para ingresar el valor a pagar en USD -->
         <div>
           <mat-form-field appearance="fill" class="inputs">
             <mat-label>Valor a pagar en USD</mat-label>
@@ -14,8 +16,9 @@
             </mat-error>
           </mat-form-field>
         </div>
+        <!-- Campo para ingresar el valor entregado en USD -->
         <div>
-          <mat-form-field appearance="fill"  class="inputs">
+          <mat-form-field appearance="fill" class="inputs">
             <mat-label>Valor entregado en USD</mat-label>
             <input matInput id="givenAmount" formControlName="givenAmount" type="number">
             <mat-error *ngIf="exchangeForm.get('givenAmount')?.hasError('required')">
@@ -26,50 +29,54 @@
             </mat-error>
           </mat-form-field>
         </div>
+        <!-- Campo para seleccionar la moneda de salida -->
         <div>
           <mat-form-field appearance="fill" class="inputs">
             <mat-label>Moneda de salida</mat-label>
             <mat-select id="currency" formControlName="currency">
-              <mat-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</mat-option>
+              <mat-option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</mat-option>
             </mat-select>
             <mat-error *ngIf="exchangeForm.get('currency')?.hasError('required')">
               Selecciona una moneda.
             </mat-error>
           </mat-form-field>
         </div>
+        <!-- Botones para enviar el formulario y reiniciar -->
         <div class="buttons">
           <button mat-raised-button color="primary" type="submit" [disabled]="exchangeForm.invalid">Calcular</button>
           <button mat-raised-button color="warn" type="button" (click)="resetForm()">Reiniciar</button>
         </div>
       </form>
     </mat-card>
-    
-      <!-- CARD PARA MOSTRAR RESULTADOS DEL PAGO -->
-      <mat-card *ngIf="result" class="result-card">
-        <h3>Factura de Pago</h3>
-        <div class="invoice">
-          <div class="invoice-header">
-            <p><strong>Devuelta en USD:</strong> {{result.changeInUSD}}</p>
-            <p><strong>Devuelta en {{result.currency}}:</strong> {{result.changeInCurrency}}</p>
-          </div>
-          <div class="invoice-body">
-            <p><strong>Cantidad por denominación:</strong></p>
-            <table>
-              <thead>
-                <tr>
-                  <th>Denominación</th>
-                  <th>Cantidad</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let denom of result.denominations">
-                  <td>{{denom.value}}</td>
-                  <td>{{denom.count}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+    <!-- Tarjeta para mostrar los resultados del pago -->
+    <mat-card *ngIf="result" class="result-card">
+      <h3>Factura de Pago</h3>
+      <div class="invoice">
+        <div class="invoice-header">
+          <!-- Mostrar el cambio devuelto en USD y en la moneda seleccionada -->
+          <p><strong>Devuelta en USD:</strong> {{ result.changeInUSD }}</p>
+          <p><strong>Devuelta en {{ result.currency }}:</strong> {{ result.changeInCurrency }}</p>
         </div>
-      </mat-card>
-    </div>
+        <div class="invoice-body">
+          <p><strong>Cantidad por denominación:</strong></p>
+          <!-- Tabla para mostrar las denominaciones y cantidades -->
+          <table>
+            <thead>
+              <tr>
+                <th>Denominación</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let denom of result.denominations">
+                <td>{{ denom.value }}</td>
+                <td>{{ denom.count }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </mat-card>
   </div>
+</div>

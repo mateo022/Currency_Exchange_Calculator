@@ -1,8 +1,51 @@
 {
-    "USD": [100, 50, 20, 10, 5, 2, 1],
-    "EUR": [500, 200, 100, 50, 20, 10, 5, 2, 1],
-    "GBP": [50, 20, 10, 5, 2, 1],
-    "JPY": [10000, 5000, 2000, 1000, 500, 100, 50, 10, 5, 1],
-    "AUD": [100, 50, 20, 10, 5, 2, 1],
-    "COP": [50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50]
-  }
+  "USD": [
+    { "value": 100, "available": 10 },
+    { "value": 50, "available": 20 },
+    { "value": 20, "available": 30 },
+    { "value": 10, "available": 40 },
+    { "value": 5, "available": 50 },
+    { "value": 2, "available": 60 },
+    { "value": 1, "available": 100 }
+  ],
+  "EUR": [
+    { "value": 500, "available": 5 },
+    { "value": 200, "available": 10 },
+    { "value": 100, "available": 20 },
+    { "value": 50, "available": 30 },
+    { "value": 20, "available": 40 },
+    { "value": 10, "available": 50 },
+    { "value": 5, "available": 60 },
+    { "value": 2, "available": 70 },
+    { "value": 1, "available": 80 }
+  ],
+  "GBP": [
+    { "value": 50, "available": 20 },
+    { "value": 20, "available": 30 },
+    { "value": 10, "available": 40 },
+    { "value": 5, "available": 50 },
+    { "value": 2, "available": 60 },
+    { "value": 1, "available": 70 }
+  ],
+  "JPY": [
+    { "value": 10000, "available": 5 },
+    { "value": 5000, "available": 10 },
+    { "value": 2000, "available": 15 },
+    { "value": 1000, "available": 20 },
+    { "value": 500, "available": 25 },
+    { "value": 100, "available": 30 },
+    { "value": 50, "available": 35 },
+    { "value": 10, "available": 40 },
+    { "value": 5, "available": 45 },
+    { "value": 1, "available": 50 }
+  ],
+  "AUD": [
+    { "value": 100, "available": 10 },
+    { "value": 50, "available": 20 },
+    { "value": 20, "available": 30 },
+    { "value": 10, "available": 40 },
+    { "value": 5, "available": 50 },
+    { "value": 2, "available": 60 },
+    { "value": 1, "available": 70 }
+  ]
+}

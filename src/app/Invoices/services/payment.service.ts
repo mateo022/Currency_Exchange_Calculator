@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../../environments/environment';
+import { Denomination } from '../models/payment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ export class PaymentService {
 
   constructor(private http: HttpClient) { }
 
-  getDenominations(): Observable<{ [key: string]: number[] }> {
-    return this.http.get<{ [key: string]: number[] }>(this.denominationsUrl);
+
+  getDenominations(): Observable<{ [key: string]: Denomination[] }> {
+    return this.http.get<{ [key: string]: Denomination[] }>(this.denominationsUrl);
   }
 
   getExchangeRate(currency: string): Observable<any> {
