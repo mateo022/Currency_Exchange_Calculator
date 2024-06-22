@@ -45,11 +45,3 @@ Contiene la información detallada del intercambio de divisas, incluyendo el cam
 2. Instala las dependencias utilizando `npm install`.
 3. Inicia el servidor de desarrollo con `ng serve`.
 4. Accede a la aplicación desde `http://localhost:4200`.
-
-## Contribuciones
-
-Las contribuciones son bienvenidas. Si deseas mejorar esta aplicación, realiza un fork del repositorio y envía tus pull requests.
-
-## Licencia
-
-Este proyecto está bajo la licencia [MIT](https://opensource.org/licenses/MIT).
